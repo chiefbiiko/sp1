@@ -5,6 +5,8 @@ use crate::stark::record::MachineRecord;
 use crate::stark::DebugConstraintBuilder;
 use crate::stark::MachineChip;
 use crate::stark::ProverConstraintFolder;
+use core::marker::PhantomData;
+use core::sync::atomic::{AtomicU32, Ordering};
 use itertools::Itertools;
 use p3_air::Air;
 use p3_challenger::{CanObserve, FieldChallenger};
@@ -19,9 +21,10 @@ use p3_util::log2_ceil_usize;
 use p3_util::log2_strict_usize;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-use std::marker::PhantomData;
-use std::sync::atomic::{AtomicU32, Ordering};
+#[cfg(feature = "std")]
 use std::time::Instant;
+#[cfg(not(feature = "std"))]
+use web_time::Instant;
 
 use super::{types::*, StarkGenericConfig};
 use super::{Com, OpeningProof};

@@ -1,4 +1,4 @@
-use std::{
+use core::{
     marker::PhantomData,
     ops::{Add, Mul, MulAssign, Sub},
 };
