@@ -28,3 +28,5 @@ yansi = "0.5.1"
 hex = "0.4.3"
 anstyle = "1.0.6"
 target-lexicon = "0.12.13"
+
+web-time = "1.1.0"

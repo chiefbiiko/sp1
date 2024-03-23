@@ -2502,6 +2502,7 @@ dependencies = [
  "target-lexicon",
  "tokio",
  "vergen",
+ "web-time",
  "yansi",
 ]
 

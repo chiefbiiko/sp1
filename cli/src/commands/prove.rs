@@ -5,8 +5,8 @@ use sp1_core::{
     utils::{self},
     SP1Prover, SP1Stdin,
 };
-use std::time::Instant;
 use std::{env, fs::File, io::Read, path::PathBuf, str::FromStr};
+use web_time::Instant;
 
 use crate::{
     build::{build_program, BuildArgs},

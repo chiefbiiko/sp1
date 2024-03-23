@@ -21,9 +21,6 @@ use p3_util::log2_ceil_usize;
 use p3_util::log2_strict_usize;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-#[cfg(feature = "std")]
-use std::time::Instant;
-#[cfg(not(feature = "std"))]
 use web_time::Instant;
 
 use super::{types::*, StarkGenericConfig};
