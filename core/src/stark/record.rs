@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use hashbrown::HashMap;
 
 pub trait MachineRecord: Default + Sized + Send + Sync {
     type Config: Default;

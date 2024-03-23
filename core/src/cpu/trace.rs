@@ -9,13 +9,13 @@ use crate::disassembler::WORD_SIZE;
 use crate::memory::MemoryCols;
 use crate::runtime::MemoryRecordEnum;
 use crate::runtime::{ExecutionRecord, Opcode};
+use hashbrown::HashMap;
 use p3_field::{PrimeField, PrimeField32};
 use p3_matrix::dense::RowMajorMatrix;
 use p3_maybe_rayon::prelude::IntoParallelRefIterator;
 use p3_maybe_rayon::prelude::ParallelIterator;
 use p3_maybe_rayon::prelude::ParallelSlice;
 use std::borrow::BorrowMut;
-use std::collections::HashMap;
 use tracing::instrument;
 
 impl<F: PrimeField32> MachineAir<F> for CpuChip {
