@@ -42,8 +42,10 @@ pub fn reconstruct_commitments() -> bool {
 /// The prover will generate the events for a whole batch at once, so this param should be the
 /// largest number of shards that can be executed and proven at once, subject to memory constraints.
 pub fn shard_batch_size() -> u32 {
-    match std::env::var("SHARD_BATCH_SIZE") {
-        Ok(val) => val.parse().unwrap(),
-        Err(_) => 0,
-    }
+    // can't use fs in wasm so force to 1 batch
+    0
+    // match std::env::var("SHARD_BATCH_SIZE") {
+    //     Ok(val) => val.parse().unwrap(),
+    //     Err(_) => 0,
+    // }
 }
