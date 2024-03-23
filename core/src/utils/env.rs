@@ -31,10 +31,12 @@ pub fn save_disk_threshold() -> usize {
 
 /// Gets the flag for whether to recreate the shard commitments instead of saving them to disk.
 pub fn reconstruct_commitments() -> bool {
-    match std::env::var("RECONSTRUCT_COMMITMENTS") {
-        Ok(val) => val == "true",
-        Err(_) => true,
-    }
+    // HACK try lower mem usg
+    false
+    // match std::env::var("RECONSTRUCT_COMMITMENTS") {
+    //     Ok(val) => val == "true",
+    //     Err(_) => true,
+    // }
 }
 
 /// Gets the max number of shards that can go in one batch. If set to 0, there will only be 1 batch.
