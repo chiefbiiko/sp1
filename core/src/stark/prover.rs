@@ -488,13 +488,14 @@ where
                                     start.elapsed().as_secs_f64()
                                 );
                                 let commitment = data.main_commit.clone();
-                                let file = tempfile::tempfile().unwrap();
+                                // let file = tempfile::tempfile().unwrap();
                                 let data = if reconstruct_commitments {
                                     ShardMainDataWrapper::Empty()
                                 } else if num_shards > save_disk_threshold {
-                                    tracing::info_span!("saving trace to disk").in_scope(|| {
-                                        data.save(file).expect("failed to save shard main data")
-                                    })
+                                    // tracing::info_span!("saving trace to disk").in_scope(|| {
+                                    //     data.save(file).expect("failed to save shard main data")
+                                    // })
+                                    panic!("num_shards > save_disk_threshold");
                                 } else {
                                     data.to_in_memory()
                                 };

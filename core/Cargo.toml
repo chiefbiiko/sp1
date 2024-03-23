@@ -56,7 +56,7 @@ serde_json = { version = "1.0.113", default-features = false, features = [
 ] }
 serial_test = "3.0.0"
 size = "0.4.1"
-tempfile = "3.9.0"
+# tempfile = "3.9.0"
 tiny-keccak = { version = "2.0.2", features = ["keccak"] }
 tracing = "0.1.40"
 tracing-forest = { version = "0.1.6", features = ["ansi", "smallvec"] }
