@@ -21,10 +21,12 @@ pub fn shard_size() -> usize {
 
 /// Gets the number of shards after which we should save the shard commits to disk.
 pub fn save_disk_threshold() -> usize {
-    match std::env::var("SAVE_DISK_THRESHOLD") {
-        Ok(val) => val.parse().unwrap(),
-        Err(_) => 256,
-    }
+    // can't use fs in wasm so max out
+    usize::MAX
+    // match std::env::var("SAVE_DISK_THRESHOLD") {
+    //     Ok(val) => val.parse().unwrap(),
+    //     Err(_) => 256,
+    // }
 }
 
 /// Gets the flag for whether to recreate the shard commitments instead of saving them to disk.
