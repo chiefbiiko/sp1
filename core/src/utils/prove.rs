@@ -6,6 +6,7 @@ use web_time::Instant;
 pub use baby_bear_blake3::BabyBearBlake3;
 use p3_challenger::CanObserve;
 use p3_field::PrimeField32;
+use rayon::prelude::*;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 use size::Size;
@@ -195,7 +196,7 @@ where
             tracing::debug_span!("shard").in_scope(|| machine.shard(events, &sharding_config))
         };
         let mut checkpoint_proofs = checkpoint_shards
-            .into_iter()
+            .into_par_iter()
             .map(|shard| {
                 let config = machine.config();
                 let shard_data =
